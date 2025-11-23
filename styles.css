@@ -609,11 +609,45 @@ section {
     .container {
         flex-direction: column;
         gap: 2rem;
+        width:100%;
     }
 
     #name-and-pfp {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
+    }
+
+    .contents {
+        width: 100%;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .project-card,
+    .pub-item,
+    .reference-item,
+    .timeline-item,
+    .technical-skills {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .project-card h3 {
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+    }
+
+    .technical-skills {
+        width: 100%;
+        min-width: 0;
     }
 
     .site-nav ul {
@@ -687,6 +721,7 @@ section {
     .timeline {
         padding-left: 10px;
         border-left-width: 2px;
+        width: 100%;
     }
 
     .timeline-item::before {
@@ -697,6 +732,12 @@ section {
 
     .contact-container {
         grid-template-columns: 1fr;
+    }
+
+    .contact-form,
+    .social-links {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
