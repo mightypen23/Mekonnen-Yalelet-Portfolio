@@ -150,11 +150,6 @@ h3 {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.profile-link svg {
-    width: 15px;
-    height: 15px;
-}
-
 .profile-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.12);
