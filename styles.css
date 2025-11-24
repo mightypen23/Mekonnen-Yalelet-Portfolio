@@ -8,6 +8,7 @@
 :root {
     --primary-blue: rgb(0, 115, 255);
     --dark-blue: #0e3a47;
+    --light-blue:#0e3a20;
     --text-dark: #203b41;
     --text-medium: #3b6065;
     --card-gradient: linear-gradient(45deg, rgb(211,243,255), white, rgb(142,215,225));
@@ -139,7 +140,7 @@ h3 {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    color: var(--text-dark);
+    color: var(--light-blue);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -148,6 +149,10 @@ h3 {
     background: rgba(255,255,255,0.7);
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.profile-link svg {
+   width:25px;
+   height:25px;
 }
 
 .profile-link:hover {
