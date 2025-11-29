@@ -45,6 +45,9 @@ body {
     padding: 10px;
 }
 
+#nav-toggle{
+   display:none;
+}
 .site-nav ul {
     list-style: none;
     display: flex;
@@ -684,7 +687,6 @@ section {
     }
 
     #nav-toggle {
-        appearance:none;
         position: relative;
         left: 85%;
         background: none;
