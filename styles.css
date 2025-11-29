@@ -684,6 +684,7 @@ section {
     }
 
     #nav-toggle {
+        appearance:none;
         position: relative;
         left: 85%;
         background: none;
