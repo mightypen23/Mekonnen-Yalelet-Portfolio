@@ -130,6 +130,10 @@ h3 {
     border-radius: 8px;
     margin: 10px 0;
 }
+.profile-links{
+display:flex;
+justify-content:space-evenly;
+}
 .profile-links a {
   margin:10px;
 }
