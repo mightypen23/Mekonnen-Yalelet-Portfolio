@@ -141,25 +141,13 @@ justify-content:space-evenly;
     font-size:64px;
     color:rgb(90, 68, 255);
 }
-.fa-google-scholar span{
-    font-size:0.5em;
-}
 .fa-orcid{
     font-size:64px;
     color:grey;
 }
-.fa-orcid span{
-    font-size:0.5em;
-}
 .fa-linkedin{
     font-size:64px;
     color:blue;
-}
-.fa-linkedin span{
-   font-size:0.5em;
-}
-.fa-linkedin span .id{
-   color:#a0ca43;
 }
 .contents {
     width: 98%;
