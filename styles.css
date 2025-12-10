@@ -149,6 +149,14 @@ justify-content:space-evenly;
     font-size:64px;
     color:blue;
 }
+.fa-brands{
+   transition:all 0.3s ease;
+}
+   
+.fa-brands:hover{
+   transform:translateY(-2px) scale(1.2);
+}
+   
 .contents {
     width: 98%;
     background: white;
