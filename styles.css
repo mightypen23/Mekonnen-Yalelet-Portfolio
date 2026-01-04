@@ -168,7 +168,9 @@ justify-content:space-evenly;
 section {
     padding: 20px;
 }
-
+#about p{
+   font-size:18px;
+}
 .range {
     font-size: 18px;
     color: var(--text-dark);
