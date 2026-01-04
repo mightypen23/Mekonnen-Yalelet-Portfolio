@@ -232,9 +232,24 @@ section {
 }
 
 .education-details {
-    font-size: 16px;
-    color: #030505;
+    font-size: 18px;
+    color: var(--text-medium);
     margin: 10px 0;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+#education {
+    background: var(--card-gradient);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+}
+
+#education:hover {
+    box-shadow: var(--card-shadow-hover);
 }
 
 .skills_acquired {
@@ -759,6 +774,10 @@ section {
         font-size: 16px;
         line-height: 1.6;
     }
+    .education-details {
+        font-size: 16px;
+        line-height: 1.6;
+    }
     section {
         padding: 10px;
     }
@@ -776,5 +795,9 @@ section {
     }
     .header, .section-title {
         font-size: 22px;
+    }
+    .education-details {
+        font-size: 14px;
+        line-height: 1.5;
     }
 }
