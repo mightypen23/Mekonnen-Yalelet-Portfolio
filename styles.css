@@ -190,8 +190,25 @@ section {
     padding: 20px;
 }
 #about p{
-    font-size:15px;
+    font-size:18px;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--text-medium);
 }
+
+#about {
+    background: var(--card-gradient);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+}
+
+#about:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
 .range {
     font-size: 18px;
     color: var(--text-dark);
@@ -734,5 +751,30 @@ section {
     .social-links {
         width: 100%;
         box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    #about p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    section {
+        padding: 10px;
+    }
+    .contents {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .header, .section-title {
+        font-size: 22px;
     }
 }
