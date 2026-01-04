@@ -120,11 +120,16 @@ h3 {
 #name-and-pfp {
     width: 35%;
     min-width: 300px;
-    background: white;
+    background: var(--card-gradient);
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     text-align: center;
+    transition: var(--transition-smooth);
+}
+
+#name-and-pfp:hover {
+    box-shadow: var(--card-shadow-hover);
 }
 
 .pfp {
