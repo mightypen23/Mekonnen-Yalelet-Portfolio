@@ -8,7 +8,6 @@
 :root {
     --primary-blue: rgb(0, 115, 255);
     --dark-blue: #0e3a47;
-    --light-blue:#0e3a20;
     --text-dark: #203b41;
     --text-medium: #3b6065;
     --card-gradient: linear-gradient(45deg, rgb(211,243,255), white, rgb(142,215,225));
@@ -39,15 +38,16 @@ body {
     width: 100%;
     z-index: 999;
     opacity: 0.9;
-    -webkit-backdrop-filter: blur(60px);
+    -webkit-backdrop-filter:blur(60px);
     backdrop-filter: blur(60px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     padding: 10px;
 }
 
-#nav-toggle{
-   display:none;
+#nav-toggle {
+    display: none;
 }
+
 .site-nav ul {
     list-style: none;
     display: flex;
@@ -61,7 +61,7 @@ body {
 .site-nav a {
     color: white;
     text-decoration: none;
-    margin: 15px;
+    margin:0 15px;
     transition: color 0.2s ease;
 }
 
@@ -130,33 +130,43 @@ h3 {
     border-radius: 8px;
     margin: 10px 0;
 }
-.profile-links{
-display:flex;
-justify-content:space-evenly;
+
+.profile-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    width:90%;
+    height:10%;
+    margin:10px;
+    background-color:rgb(254, 255, 255);
+    border-radius:8px;
+    box-shadow:0 0 5px 5px lightgrey;
+    padding:1%;
 }
-.profile-links a {
-  margin:10px;
+
+.fa-google-scholar {
+    font-size: 64px;
+    color: rgb(90, 68, 255);
 }
-.fa-google-scholar{
-    font-size:64px;
-    color:rgb(90, 68, 255);
+
+.fa-orcid {
+    font-size: 64px;
+    color: #a0ca43;
 }
-.fa-orcid{
-    font-size:64px;
-    color:#a0ca43;
+
+.fa-linkedin {
+    font-size: 64px;
+    color: blue;
 }
-.fa-linkedin{
-    font-size:64px;
-    color:blue;
+
+.fa-brands {
+    transition: all 0.3s ease;
 }
-.fa-brands{
-   transition:all 0.3s ease;
+
+.fa-brands:hover {
+    transform: translateY(-2px) scale(1.2);
 }
-   
-.fa-brands:hover{
-   transform:translateY(-2px) scale(1.2);
-}
-   
+
 .contents {
     width: 98%;
     background: white;
@@ -182,7 +192,6 @@ section {
 }
 
 .school-link {
-    padding: 3px;
     color: var(--primary-blue);
     text-decoration: none;
     transition: opacity 0.2s ease;
@@ -214,9 +223,16 @@ section {
 }
 
 /* ============================
-   CARD STYLES (Shared)
+   CARD STYLES
 ============================ */
-.card-base {
+.card-base,
+.project-card,
+.pub-item,
+.reference-item,
+.timeline-item,
+.technical-skills,
+.contact-form,
+.social-links {
     background: var(--card-gradient);
     border-radius: 8px;
     padding: 20px;
@@ -224,7 +240,12 @@ section {
     transition: var(--transition-smooth);
 }
 
-.card-base:hover {
+.card-base:hover,
+.project-card:hover,
+.pub-item:hover,
+.reference-item:hover,
+.timeline-item:hover,
+.technical-skills:hover {
     transform: translateY(-2px);
     box-shadow: var(--card-shadow-hover);
 }
@@ -236,19 +257,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-}
-
-.project-card {
-    background: var(--card-gradient);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-smooth);
-}
-
-.project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
 }
 
 .project-card h3 {
@@ -283,16 +291,7 @@ section {
 .technical-skills {
     flex: 1;
     min-width: 180px;
-    background: var(--card-gradient);
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-smooth);
-}
-
-.technical-skills:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
 }
 
 .technical-skills h4 {
@@ -321,16 +320,7 @@ section {
 }
 
 .pub-item {
-    background: var(--card-gradient);
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-smooth);
-}
-
-.pub-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
 }
 
 .pub-item h4 {
@@ -356,23 +346,8 @@ section {
 }
 
 .timeline-item {
-    background: var(--card-gradient);
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
     position: relative;
-    transition: var(--transition-smooth);
-}
-
-.link {
-    padding: 3px;
-    color: var(--primary-blue);
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-.timeline-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
 }
 
 .timeline-item::before {
@@ -389,7 +364,6 @@ section {
 }
 
 .timeline-item h3 {
-    margin: 0;
     font-size: 20px;
     color: var(--dark-blue);
 }
@@ -422,19 +396,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-}
-
-.reference-item {
-    background: var(--card-gradient);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-smooth);
-}
-
-.reference-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
 }
 
 .reference-item h4 {
@@ -494,14 +455,6 @@ section {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 20px;
-}
-
-.contact-form,
-.social-links {
-    background: var(--card-gradient);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
 }
 
 .contact-form fieldset {
@@ -572,11 +525,6 @@ section {
     transform: translateY(0);
 }
 
-.contact-form button a {
-    color: white;
-    text-decoration: none;
-}
-
 .social-links-list {
     list-style: none;
     padding: 0;
@@ -641,11 +589,10 @@ section {
 /* ============================
    MEDIA QUERIES
 ============================ */
-@media (max-width: 920px) {
+@media (max-width: 1300px) {
     .container {
         flex-direction: column;
         gap: 2rem;
-        width:100%;
     }
 
     #name-and-pfp {
@@ -667,10 +614,8 @@ section {
     .timeline-item,
     .technical-skills {
         width: 100%;
-        max-width: 100%;
-        min-width: 0;
         box-sizing: border-box;
-        margin:0;
+        margin: 0;
     }
 
     .project-card h3 {
@@ -724,6 +669,7 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
+        display: block;
     }
 
     #nav-toggle:hover {
@@ -775,34 +721,5 @@ section {
     .social-links {
         width: 100%;
         box-sizing: border-box;
-    }
-}
-
-@media (min-width: 1024px) {
-    .projects-grid {
-        flex-flow: column wrap;
-        align-items: center;
-    }
-
-    .project-card {
-        width: 80%;
-    }
-
-    .technical-skills {
-        width: 30%;
-    }
-
-    .publication-list {
-        width: 90%;
-        margin-left: 20px;
-    }
-
-    .timeline {
-        width: 90%;
-        margin-left: 20px;
-    }
-
-    .timeline-item {
-        width: 100%;
     }
 }
