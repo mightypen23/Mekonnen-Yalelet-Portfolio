@@ -178,7 +178,9 @@ h3 {
 section {
     padding: 20px;
 }
-
+#about p{
+   font-size:18px;
+}
 .range {
     font-size: 18px;
     color: var(--text-dark);
@@ -484,7 +486,7 @@ section {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    background: #E1F3F5;
+    background: #ffffff;
     border: 1px solid #767676;
     border-radius: 5px;
     font-family: inherit;
