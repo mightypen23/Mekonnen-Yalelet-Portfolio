@@ -720,14 +720,18 @@ section {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background: white;
-    border-radius: 8px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-link-item:hover {
     transform: translateX(5px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .social-link-item a {
@@ -735,9 +739,13 @@ section {
     align-items: center;
     gap: 15px;
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--card-text-primary);
     width: 100%;
     transition: color 0.3s ease;
+}
+
+.social-link-item a:hover {
+    color: var(--primary-blue);
 }
 
 .social-link-item:hover a {
