@@ -125,6 +125,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 999;
+    height: 60px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -661,8 +662,8 @@ section {
     padding: 12px;
     margin-top: 5px;
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     border: 2px solid rgba(0, 115, 255, 0.3);
     border-radius: 8px;
     font-family: inherit;
@@ -721,8 +722,8 @@ section {
     gap: 15px;
     padding: 15px;
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
     border-radius: 12px;
     box-shadow: var(--card-shadow);
@@ -820,7 +821,7 @@ section {
         width: 100%;
         min-width: 0;
     }
-
+    
     .site-nav ul {
         display: flex;
         flex-direction: column;
@@ -842,6 +843,11 @@ section {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     #nav-toggle {
@@ -911,6 +917,10 @@ section {
         width: 100%;
         box-sizing: border-box;
     }
+}
+
+[data-theme="dark"] .site-nav ul.open {
+    background: rgba(30, 41, 59, 0.9);
 }
 
 @media (max-width: 768px) {
