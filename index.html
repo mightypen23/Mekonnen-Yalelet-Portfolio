@@ -22,7 +22,7 @@
     <meta property="og:image" content="assets/og-image.png" />
 </head>
 
-<body>
+<body data-theme="dark">
 
     <canvas id="signature-canvas"></canvas>
 
@@ -56,7 +56,6 @@
         <section id="name-and-pfp">
             <img class="pfp" src="Mekonnen.jpg" alt="Mekonnen Yalelet profile picture">
             <h1>Mekonnen<br>Yalelet Getnet</h1>
-            <h2>MSc graduate at University of Cassino and Southern Lazio</h2>
             <div class="profile-links">
                 <a class="profile-link linkedin" href="https://www.linkedin.com/in/mekonen-y-getnet-61a409188/" target="_blank" rel="noopener noreferrer">
                    <i class="fa-brands fa-linkedin"></i>
@@ -74,27 +73,33 @@
         <!-- =======================
              ABOUT SECTION
         ========================== -->
-            <section id="about">
-                <h3 class="header">About</h3>
-
-                <p>
-                    Hello, I am an MSc graduate in Mechanical Engineering
-                    at the University of Cassino and Southern Lazio, with a strong background
-                    in thermal and fluid dynamics, CFD modeling, and optimization methods. Passionate
-                    about advancing sustainable energy solutions, I excel in utilizing tools like ANSYS Fluent,
-                    COMSOL Multiphysics, and MATLAB to enhance heat transfer processes and optimize system performance.
-                    I combine academic rigor with practical experience from internships and research projects in
-                    solar energy and thermal storage systems. I enjoy exploring innovative engineering
-                    challenges and embracing multicultural environments, while also nurturing interests in languages and technology
-                    that complement my professional growth.
-                </p>
+            <section id="about" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>About</h3>
+                </div>
+                <div class="collapsible-content">
+                    <p>
+                        Hello, I am an MSc graduate in Mechanical Engineering
+                        at the University of Cassino and Southern Lazio, with a strong background
+                        in thermal and fluid dynamics, CFD modeling, and optimization methods. Passionate
+                        about advancing sustainable energy solutions, I excel in utilizing tools like ANSYS Fluent,
+                        COMSOL Multiphysics, and MATLAB to enhance heat transfer processes and optimize system performance.
+                        I combine academic rigor with practical experience from internships and research projects in
+                        solar energy and thermal storage systems. I enjoy exploring innovative engineering
+                        challenges and embracing multicultural environments, while also nurturing interests in languages and technology
+                        that complement my professional growth.
+                    </p>
+                </div>
             </section>
 
             <!-- =======================
                  EDUCATION SECTION
             ========================== -->
-            <section id="education">
-                <h3 class="header">Education</h3>
+            <section id="education" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>Education</h3>
+                </div>
+                <div class="collapsible-content">
                 <!-- MSc 2 -->
                 <p>
                     <span class="range">Jan 2023 — 2025</span><br><br>
@@ -147,13 +152,12 @@
 
               
              
-            </section>
-
-            <!-- =======================
-                 RESEARCH & PROJECTS
-            ========================== -->
-            <section id="research">
-                <h2 class="section-title">Research and Projects</h2>
+            </div>
+            <section id="research" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>Research and Projects</h3>
+                </div>
+                <div class="collapsible-content">
 
                 <div class="projects-grid">
 
@@ -200,13 +204,17 @@
                         <p> CLTD Cooling Load Estimation Method for ASTU Main Library Building (BSc project) </p>
                     </article>
                 </div>
+            </div>
             </section>
 
             <!-- =======================
                  PUBLICATIONS
             ========================== -->
-            <section id="publications" class="section container">
-                <h2 class="section-title">Publications & Presentations</h2>
+            <section id="publications" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>Publications & Presentations</h3>
+                </div>
+                <div class="collapsible-content">
 
                 <div class="publication-list">
 
@@ -226,14 +234,18 @@
                     </div>
 
                 </div>
+            </div>
             </section>
 
             <!-- =======================
                  EXPERIENCE
             ========================== -->
-            <section id="experience" class="section alt">
-                <div class="container">
-                    <h2 class="section-title">Work & Academic Experience</h2>
+            <section id="experience" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>Work & Academic Experience</h3>
+                </div>
+                <div class="collapsible-content">
+                    <div class="container">
 
                     <div class="timeline">
 
@@ -276,13 +288,17 @@
 
                     </div>
                 </div>
+            </div>
             </section>
 
             <!-- =======================
                  SKILLS
             ========================== -->
-            <section id="skills" class="section container">
-                <h2 class="section-title">Skills & Tools</h2>
+            <section id="skills" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>Skills & Tools</h3>
+                </div>
+                <div class="collapsible-content">
 
                 <div class="skills-grid">
                     <div class="technical-skills">
@@ -308,12 +324,16 @@
                         <p>Italian(elementary proficiency)</p>
                     </div>
                 </div>
+            </div>
             </section>
             <!-- =======================
                  REFERENCES SECTION
             ========================== -->
-            <section id="references">
-                <h3 class="header">References</h3>
+            <section id="references" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>References</h3>
+                </div>
+                <div class="collapsible-content">
                 
                 <div class="references-list">
                     <div class="reference-item">
@@ -338,13 +358,17 @@
                         </p>
                     </div>
                 </div>
+            </div>
             </section>
 
             <!-- =======================
                  CONTACT SECTION
             ========================== -->
-            <section id="contact">
-                <h3 class="header">Contact Me</h3>
+            <section id="contact" class="collapsible-section">
+                <div class="collapsible-header collapsed">
+                    <h3>Contact Me</h3>
+                </div>
+                <div class="collapsible-content">
                 
                 <div class="contact-container">
                     <!-- Contact Form -->
@@ -401,6 +425,7 @@
                         </ul>
                     </div>
                 </div>
+            </div>
             </section>
     
     <script src="script.js"></script>

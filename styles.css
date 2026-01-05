@@ -34,29 +34,29 @@
 
 [data-theme="dark"] {
     /* Dark Mode Colors for Background */
-    --bg-color: #000000; /* Deep Slate Blue */
-    --text-color: #e2e8f0;
+    --bg-color: #1a1a1a; /* Dark gray instead of pure black */
+    --text-color: #f0f0f0; /* Slightly warmer white */
     --accent-color: #a29bfe;
-    --particle-color: rgba(255, 255, 255, 0.5);
-    --line-color: rgba(255, 255, 255, 0.15);
-    --toggle-bg: #1e293b;
+    --particle-color: rgba(240, 240, 240, 0.5);
+    --line-color: rgba(240, 240, 240, 0.15);
+    --toggle-bg: #2d3748;
     --toggle-icon: #fbbf24;
 
     /* Override portfolio colors for dark mode */
-    --text-dark: #e2e8f0;
-    --text-medium: #cbd5e1;
+    --text-dark: #f0f0f0;
+    --text-medium: #d1d5db;
 
     /* Dark mode glassmorphic card backgrounds */
-    --card-bg: rgba(30, 41, 59, 0.25);
+    --card-bg: rgba(45, 55, 72, 0.25);
     --card-border: rgba(255, 255, 255, 0.125);
 
-    /* Dark mode card text colors */
-    --card-text-primary: #e2e8f0;
-    --card-text-secondary: #cbd5e1;
-    --card-text-accent: #f1f5f9;
+    /* Dark mode card text colors with better contrast hierarchy */
+    --card-text-primary: #f0f0f0; /* Main text */
+    --card-text-secondary: #d1d5db; /* Secondary text */
+    --card-text-accent: #ffffff; /* Accent/highlight text */
 
     /* Dark mode form inputs */
-    --input-bg: rgba(30, 41, 59, 0.3);
+    --input-bg: rgba(45, 55, 72, 0.3);
     --input-border: rgba(255, 255, 255, 0.2);
 }
 
@@ -134,7 +134,7 @@ body {
 }
 
 [data-theme="dark"] .site-nav {
-    background: rgba(30, 41, 59, 0.8);
+    background: rgba(45, 55, 72, 0.8);
 }
 
 #nav-toggle {
@@ -176,14 +176,14 @@ body {
 
 [data-theme="dark"] .contact-form input,
 [data-theme="dark"] .contact-form textarea {
-    background: rgba(30, 41, 59, 0.4);
+    background: rgba(45, 55, 72, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.4);
-    color: #e2e8f0;
+    color: #f0f0f0;
 }
 
 [data-theme="dark"] .contact-form input::placeholder,
 [data-theme="dark"] .contact-form textarea::placeholder {
-    color: #cbd5e1;
+    color: #d1d5db;
 }
 
 /* ============================
@@ -259,11 +259,6 @@ body > section {
     font-size: 32px;
     color: var(--card-text-primary);
 }
-#name-and-pfp h2 {
-    margin-top:10px;
-    font-size: 22px;
-    color: var(--card-text-secondary);
-}
 .profile-links {
     display: flex;
     justify-content: space-evenly;
@@ -301,6 +296,100 @@ body > section {
 
 .fa-brands:hover {
     transform: translateY(-2px) scale(1.2);
+}
+
+/* ============================
+   COLLAPSIBLE SECTIONS
+============================ */
+.collapsible-section {
+    margin: 20px auto;
+    max-width: 1000px;
+    position: relative;
+    z-index: 1;
+}
+
+.collapsible-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 27px;
+    border-left: 6px solid var(--primary-blue);
+    padding-left: 12px;
+    margin: 5px 0;
+    color: var(--card-text-primary);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.collapsible-header:hover {
+    background: rgba(0, 115, 255, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.collapsible-header::after {
+    content: "▼";
+    font-size: 18px;
+    color: var(--card-text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.collapsible-header.collapsed::after {
+    transform: rotate(-90deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 0 15px;
+}
+
+.collapsible-content.expanded {
+    max-height: 2000px; /* Adjust based on content */
+    padding: 20px 15px;
+}
+
+.collapsible-section p,
+.collapsible-section .timeline-item,
+.collapsible-section .pub-item,
+.collapsible-section .reference-item,
+.collapsible-section .technical-skills,
+.collapsible-section .project-card {
+    margin-bottom: 15px;
+}
+
+.collapsible-section p:last-child,
+.collapsible-section .timeline-item:last-child,
+.collapsible-section .pub-item:last-child,
+.collapsible-section .reference-item:last-child,
+.collapsible-section .technical-skills:last-child,
+.collapsible-section .project-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile responsive adjustments for collapsible sections */
+@media (max-width: 768px) {
+    .collapsible-header {
+        padding: 12px 15px;
+        font-size: 24px;
+    }
+    
+    .collapsible-content.expanded {
+        padding: 15px;
+    }
 }
 
 section {
@@ -787,7 +876,7 @@ section {
 
     #name-and-pfp {
         width: 100%;
-        margin: 0 auto;
+        margin: 85px auto 0 auto;
     }
 
     .contents {

@@ -144,11 +144,11 @@ Email: ${email}`;
         function updateThemeColors() {
             const isDark = document.body.getAttribute('data-theme') === 'dark';
             if (isDark) {
-                particleColor = 'rgba(226, 232, 240, 0.5)'; // Light grey
-                lineColor = 'rgba(226, 232, 240, 0.15)';   // Faint white
+                particleColor = 'rgba(240, 240, 240, 0.5)'; // Light particles for dark mode
+                lineColor = 'rgba(240, 240, 240, 0.15)';   // Faint lines
             } else {
-                particleColor = 'rgba(51, 51, 51, 0.5)';   // Dark grey
-                lineColor = 'rgba(51, 51, 51, 0.1)';       // Faint black
+                particleColor = 'rgba(51, 51, 51, 0.5)';   // Dark grey particles
+                lineColor = 'rgba(51, 51, 51, 0.1)';       // Faint black lines
             }
         }
 
@@ -173,4 +173,24 @@ Email: ${email}`;
         animate();
         updateThemeColors(); // Set initial colors
     }
+
+    // --- COLLAPSIBLE SECTIONS ---
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    
+    collapsibleHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            const isCollapsed = header.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                // Expand
+                header.classList.remove('collapsed');
+                content.classList.add('expanded');
+            } else {
+                // Collapse
+                header.classList.add('collapsed');
+                content.classList.remove('expanded');
+            }
+        });
+    });
 });
