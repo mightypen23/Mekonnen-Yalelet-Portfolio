@@ -182,15 +182,18 @@ Email: ${email}`;
             const content = header.nextElementSibling;
             const isCollapsed = header.classList.contains('collapsed');
             
+            // Close all sections first
+            collapsibleHeaders.forEach(h => {
+                h.classList.add('collapsed');
+                h.nextElementSibling.classList.remove('expanded');
+            });
+            
             if (isCollapsed) {
-                // Expand
+                // Expand the clicked one
                 header.classList.remove('collapsed');
                 content.classList.add('expanded');
-            } else {
-                // Collapse
-                header.classList.add('collapsed');
-                content.classList.remove('expanded');
             }
+            // If it was already open, it stays closed now
         });
     });
 });
