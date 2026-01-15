@@ -577,6 +577,24 @@ section {
     font-size: 18px;
 }
 
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-header i {
+    font-size: 24px;
+    color: var(--primary-blue);
+}
+
+.skill-header h4 {
+    margin: 0;
+    color: var(--card-text-accent);
+    font-size: 18px;
+}
+
 .technical-skills p {
     margin: 0;
     color: var(--card-text-secondary);
@@ -975,26 +993,33 @@ section {
     }
 
     #nav-toggle.active:hover {
-        transform: scale(1.1) rotate(180deg);
-    }
-
-    #nav-toggle::before {
-        content: "☰";
-        font-weight: bold;
-        display: inline-block;
-        transition: opacity 0.2s ease, transform 0.3s ease;
+        transform: scale(1.1);
     }
 
     #nav-toggle.active {
-        transform: rotate(180deg);
         color: white;
     }
 
-    #nav-toggle.active::before {
-        content: "✖️";
-        font-size: 26px;
-        opacity: 1;
-        color: white;
+    .hamburger-line {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: var(--text-color);
+        margin: 4px 0;
+        transition: all 0.3s ease;
+        border-radius: 1px;
+    }
+
+    #nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    #nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
 
     .publication-list,
