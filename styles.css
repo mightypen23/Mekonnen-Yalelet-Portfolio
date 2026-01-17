@@ -1,5 +1,5 @@
 /* ============================
-   GLOBAL & VARIABLES
+    GLOBAL & VARIABLES
 ============================ */
 * {
     box-sizing: border-box;
@@ -116,7 +116,7 @@ body {
 }
 
 /* ============================
-   NAVIGATION
+    NAVIGATION
 ============================ */
 .site-nav {
     background: rgba(0, 0, 0, 0.8);
@@ -187,7 +187,7 @@ body {
 }
 
 /* ============================
-   HEADINGS
+    HEADINGS
 ============================ */
 h1 {
     font-size: 57px;
@@ -220,7 +220,7 @@ h3 {
 }
 
 /* ============================
-   LAYOUT
+    LAYOUT
 ============================ */
 body > section {
     margin: 20px auto;
@@ -299,7 +299,7 @@ body > section {
 }
 
 /* ============================
-   COLLAPSIBLE SECTIONS
+    COLLAPSIBLE SECTIONS
 ============================ */
 .collapsible-section {
     margin: 20px auto;
@@ -325,6 +325,7 @@ body > section {
     border-radius: 8px;
     padding: 15px;
     transition: all 0.3s ease;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -947,7 +948,7 @@ section {
         flex-direction: column;
         gap: 1rem;
         font-size: 21px;
-        margin-top: 8px;
+        margin-top: 50px;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -966,13 +967,15 @@ section {
         background: rgba(0, 0, 0, 0.9);
         border-radius: 8px;
         padding: 1rem;
-        margin-top: 10px;
+        margin-top: 50px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     #nav-toggle {
-        position: relative;
-        left: 85%;
+        z-index: 2000;
+        position: absolute;
+        top: 10px;
+        right: 20px;
         background: none;
         border: none;
         font-size: 2rem;
@@ -982,9 +985,9 @@ section {
         width: 40px;
         height: 40px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        display: block;
     }
 
     #nav-toggle:hover {
@@ -1005,13 +1008,13 @@ section {
         width: 20px;
         height: 2px;
         background-color: var(--text-color);
-        margin: 4px 0;
+        margin: 2px 0;
         transition: all 0.3s ease;
         border-radius: 1px;
     }
 
     #nav-toggle.active .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: translateY(6px) rotate(45deg);
     }
 
     #nav-toggle.active .hamburger-line:nth-child(2) {
@@ -1019,7 +1022,7 @@ section {
     }
 
     #nav-toggle.active .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
+        transform: translateY(-6px) rotate(-45deg);
     }
 
     .publication-list,

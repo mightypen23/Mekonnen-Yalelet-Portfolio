@@ -5,9 +5,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const navMenu = document.querySelector(".site-nav ul");
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener("click", () => {
+        navToggle.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent the click from bubbling to the document
             navMenu.classList.toggle("open");
             navToggle.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navMenu.classList.remove("open");
+                navToggle.classList.remove("active");
+            }
+        });
+
+        // Close menu when a navigation link is clicked
+        navMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("open");
+                navToggle.classList.remove("active");
+            });
         });
     }
 
