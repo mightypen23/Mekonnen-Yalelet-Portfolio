@@ -1,32 +1,6 @@
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
-    // Navigation Toggle
-    const navToggle = document.getElementById("nav-toggle");
-    const navMenu = document.querySelector(".site-nav ul");
-
-    if (navToggle && navMenu) {
-        navToggle.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent the click from bubbling to the document
-            navMenu.classList.toggle("open");
-            navToggle.classList.toggle("active");
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener("click", (e) => {
-            if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                navMenu.classList.remove("open");
-                navToggle.classList.remove("active");
-            }
-        });
-
-        // Close menu when a navigation link is clicked
-        navMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                navMenu.classList.remove("open");
-                navToggle.classList.remove("active");
-            });
-        });
-    }
+    // Navigation removed — no toggle required
 
     // Contact Form - Mailto Handler
     const contactForm = document.getElementById("contact-form");
