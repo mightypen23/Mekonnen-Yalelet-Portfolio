@@ -430,7 +430,7 @@ section {
 }
 
 /* ============================
-   CARD STYLES
+CARD STYLES
 ============================ */
 .card-base,
 .project-card,
@@ -461,7 +461,7 @@ section {
 }
 
 /* ============================
-   PROJECTS
+    PROJECTS
 ============================ */
 .projects-grid {
     display: flex;
@@ -503,7 +503,7 @@ section {
 }
 
 /* ============================
-   SKILLS GRID
+    SKILLS GRID
 ============================ */
 .skills-grid {
     display: flex;
@@ -547,7 +547,7 @@ section {
 }
 
 /* ============================
-   PUBLICATIONS & PRESENTATIONS
+    PUBLICATIONS & PRESENTATIONS
 ============================ */
 #publications,
 #experience {
