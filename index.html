@@ -1,90 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mekonnen Yalelet — Portfolio</title>
 
-    <!-- Meta info -->
+    <!-- Meta Info -->
     <meta name="description" content="Portfolio of Mekonnen Yalelet — MSc in Mechanical Engineering" />
     <meta name="author" content="Mekonnen Yalelet" />
 
+     <!-- Open Graph -->
+     <meta property="og:title" content="Mekonnen Yalelet — MSc in Mechanical Engineering" />
+     <meta property="og:description" content="Mekonnen Yalelet-portfolio" />
+     <meta property="og:type" content="website" />
+     <meta property="og:url" content="https://mekonnen-yalelet-portfolio-6je2.vercel.app/" />
+     <meta property="og:image" content="Mekonnen.jpg" />
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
-    <!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Mekonnen Yalelet — MSc in Mechanical Engineering" />
-    <meta property="og:description" content="Mekonnen Yalelet-portfolio" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mekonnen-yalelet-portfolio-6je2.vercel.app/" />
-    <meta property="og:image" content="Mekonnen.jpg" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body data-theme="dark">
 
+    <!-- Background Canvas -->
     <canvas id="signature-canvas"></canvas>
 
+    <!-- Theme Toggle -->
     <button class="theme-toggle" id="theme-btn" aria-label="Toggle Dark Mode">
         <svg viewBox="0 0 24 24">
             <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
         </svg>
     </button>
 
-    <!-- Navigation removed -->
+    <!-- Profile Section -->
+    <section id="name-and-pfp">
+        <img class="pfp" src="Mekonnen.jpg" alt="Mekonnen Yalelet profile picture">
+        <h1>Mekonnen<br>Yalelet Getnet</h1>
+        <div class="profile-links">
+            <a class="profile-link linkedin" href="https://www.linkedin.com/in/mekonen-y-getnet-61a409188/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a class="profile-link orcid" href="https://orcid.org/0000-0002-6806-4743" rel="noopener noreferrer" target="_blank">
+                <i class="fa-brands fa-orcid"></i>
+            </a>
+            <a class="profile-link googlescholar" href="https://scholar.google.com/citations?hl=en&user=8ZkfY4gAAAAJ&view_op" rel="noopener noreferrer" target="_blank">
+                <i class="fa-brands fa-google-scholar"></i>
+            </a>
+        </div>
+    </section>
 
-    <!-- =======================
-         PROFILE SECTION
-    ========================== -->
-        <section id="name-and-pfp">
-            <img class="pfp" src="Mekonnen.jpg" alt="Mekonnen Yalelet profile picture">
-            <h1>Mekonnen<br>Yalelet Getnet</h1>
-            <div class="profile-links">
-                <a class="profile-link linkedin" href="https://www.linkedin.com/in/mekonen-y-getnet-61a409188/" target="_blank" rel="noopener noreferrer">
-                   <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a class="profile-link orcid" href="https://orcid.org/0000-0002-6806-4743" rel="noopener noreferrer" target="_blank">
-                    <i class="fa-brands fa-orcid"></i>         
-                </a>
-                <a class="profile-link googlescholar" href="https://scholar.google.com/citations?hl=en&user=8ZkfY4gAAAAJ&view_op" rel="noopener noreferrer" target="_blank">
-                  <i class="fa-brands fa-google-scholar"></i>
-                </a>
-                
-            </div>
-        </section>
+    <!-- About Section -->
+    <section id="about" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>About</h3>
+        </div>
+        <div class="collapsible-content">
+            <p>
+                Hello, I am an MSc graduate in Mechanical Engineering at the University of Cassino and Southern Lazio, with a strong background in thermal and fluid dynamics, CFD modeling, and optimization methods. Passionate about advancing sustainable energy solutions, I excel in utilizing tools like ANSYS Fluent, COMSOL Multiphysics, and MATLAB to enhance heat transfer processes and optimize system performance. I combine academic rigor with practical experience from internships and research projects in solar energy and thermal storage systems. I enjoy exploring innovative engineering challenges and embracing multicultural environments, while also nurturing interests in languages and technology that complement my professional growth.
+            </p>
+        </div>
+    </section>
 
-        <!-- =======================
-             ABOUT SECTION
-        ========================== -->
-            <section id="about" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>About</h3>
-                </div>
-                <div class="collapsible-content">
-                    <p>
-                        Hello, I am an MSc graduate in Mechanical Engineering
-                        at the University of Cassino and Southern Lazio, with a strong background
-                        in thermal and fluid dynamics, CFD modeling, and optimization methods. Passionate
-                        about advancing sustainable energy solutions, I excel in utilizing tools like ANSYS Fluent,
-                        COMSOL Multiphysics, and MATLAB to enhance heat transfer processes and optimize system performance.
-                        I combine academic rigor with practical experience from internships and research projects in
-                        solar energy and thermal storage systems. I enjoy exploring innovative engineering
-                        challenges and embracing multicultural environments, while also nurturing interests in languages and technology
-                        that complement my professional growth.
-                    </p>
-                </div>
-            </section>
-
-            <!-- =======================
-                 EDUCATION SECTION
-            ========================== -->
-            <section id="education" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>Education</h3>
-                </div>
-                <div class="collapsible-content">
-                <!-- MSc 2 -->
+    <!-- Education Section -->
+    <section id="education" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>Education</h3>
+        </div>
+        <div class="collapsible-content">
+            <!-- MSc 2 -->
+            <div class="education-item">
                 <p>
                     <span class="range">Jan 2023 — 2025</span><br><br>
                     <span class="school">MSc Mechanical Engineering @ University of Cassino and Southern Lazio </span>
@@ -93,31 +81,36 @@
                 <ul class="education-details">
                     <li>Graduated with Parametric Optimization of Plate Heat Exchangers for Zeotropic Refrigerant Condensation.</li>
                 </ul>
-                <ul class="skills_acquired">
+                <ul class="skills-list">
                     <li>Mechanical Engineering</li>
                     <li>Multi-objective Optimization</li>
                     <li>CFD Simulation</li>
                     <li>Heat Transfer</li>
                     <li>Thermal Systems</li>
-                </ul> 
-                <!-- MSc -->
+                </ul>
+            </div>
+
+            <!-- MSc -->
+            <div class="education-item">
                 <p>
                     <span class="range">Sep 2018 — Jun 2020</span><br><br>
                     <span class="school">MSc Thermal Engineering @ Adama Science and Technology University</span>
                     <a class="school-link" href="https://www.astu.edu.et/">ASTU</a>
                 </p>
                 <ul class="education-details">
-                    <li> Completed MSc thesis on Experimental Investigation of PCM Integrated Indirect Solar Cooking system with <strong>[CGPA:3.94/4.00]</strong></li>
+                    <li>Completed MSc thesis on Experimental Investigation of PCM Integrated Indirect Solar Cooking system with <strong>[CGPA:3.94/4.00]</strong></li>
                 </ul>
-                <ul class="skills_acquired">
+                <ul class="skills-list">
                     <li>Thermal Engineering</li>
                     <li>Phase Change Materials</li>
                     <li>Solar Energy</li>
                     <li>Experimental Design</li>
                     <li>CFD</li>
                 </ul>
+            </div>
 
-                <!-- BSc -->
+            <!-- BSc -->
+            <div class="education-item">
                 <p>
                     <span class="range">Jan 2013 — Jan 2018</span><br><br>
                     <span class="school">BSc Mechanical Engineering @ Adama Science and Technology University </span>
@@ -126,343 +119,311 @@
                 <ul class="education-details">
                     <li>Undergraduate studies in Mechanical Engineering <strong>[CGPA:3.88/4.00]</strong></li>
                 </ul>
-                <ul class="skills_acquired">
+                <ul class="skills-list">
                     <li>Mechanical Engineering</li>
                     <li>Thermodynamics</li>
                     <li>Heat Transfer</li>
                     <li>CAD</li>
                     <li>CFD</li>
                 </ul>
-
-              
-             
             </div>
-            <section id="research" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>Research and Projects</h3>
+        </div>
+    </section>
+
+    <!-- Research and Projects Section -->
+    <section id="research" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>Research and Projects</h3>
+        </div>
+        <div class="collapsible-content">
+            <div class="projects-grid">
+
+                <article class="project-card">
+                    <h3>Parametric Optimization of Plate Heat Exchangers for Zeotropic Refrigerant Condensation.</h3>
+                    <p><em>Current MSc research — UNICAS (in collaboration with University of Limerick)</em></p>
+                    <ul>
+                        <li>Multi-objective optimization of PHE design parameters using MATLAB based NSGA-II algorism.</li>
+                        <li>Aims to maximize overall heat transfer coefficient, minimize pressure drop [pumping power] and minimize effective heat transfer area[cost].</li>
+                        <li>Pareto fronts were generated and TOPSIS is used as a decision-making tool.</li>
+                        <li>Studied the overall system level effect of optimized PHE parameters on selected HTHP layout.</li>
+                    </ul>
+                    <div class="project-gallery">
+                        <img class="project-image" src="#img" alt="Parametric Optimization image 1">
+                        <img class="project-image" src="#img" alt="Parametric Optimization image 2">
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Experimental Investigation of PCM Integrated Indirect Solar Cooking system</h3>
+                    <p><em>MSc thesis — ASTU (2018–2020)</em></p>
+                    <ul>
+                        <li>Employed the concept of conjugate heat transfer using COMSOL Multiphysics to simulate, characterize and optimize the heat and fluid flow behaviour of the heat transfer fluid and phase change material.</li>
+                        <li>Designed and fabricated test rig for indirect solar cooking system.</li>
+                        <li>Enabled extended period of cooking for 2hrs using thermal energy storage unit and increased overall system efficiency by 19%.</li>
+                        <li>Numerically modelled and simulated the flow of HTF inside a solar collector using ANSYS Fluent software.</li>
+                        <li>Validated the numerical result with RMSE 10%.</li>
+                    </ul>
+                    <a href="https://doi.org/10.1016/j.rineng.2023.101022">See more about this research...</a>
+                    <div class="project-gallery">
+                        <img class="project-image" src="#img" alt="PCM Solar Cooking image 1">
+                        <img class="project-image" src="#img" alt="PCM Solar Cooking image 2">
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>CFD Simulation: Laminar & Buoyancy Driven Flow</h3>
+                    <p><em>Technical report</em></p>
+                    <p>[Used open-source software’s of Salome, Open FOAM and Para-view for pre-processing, computational solving, and post processing, respectively. Validated against a result generated from literature]</p>
+                    <div class="project-gallery">
+                        <img class="project-image" src="#img" alt="CFD Simulation image 1">
+                        <img class="project-image" src="#img" alt="CFD Simulation image 2">
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Four-Bar Magnetic Pick-and-Place Mechanism</h3>
+                    <p>Design and Simulation of Four-Bar Magnetic Pick-and-Place Mechanism (4BMPPM) (Mini design project)</p>
+                    <div class="project-gallery">
+                        <img class="project-image" src="#img" alt="Four-Bar Mechanism image 1">
+                        <img class="project-image" src="#img" alt="Four-Bar Mechanism image 2">
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>CLTD Cooling Load Estimation Method</h3>
+                    <p>CLTD Cooling Load Estimation Method for ASTU Main Library Building (BSc project)</p>
+                    <div class="project-gallery">
+                        <img class="project-image" src="#img" alt="CLTD Cooling Load image 1">
+                        <img class="project-image" src="#img" alt="CLTD Cooling Load image 2">
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>Publications & Presentations</h3>
+        </div>
+        <div class="collapsible-content">
+            <div class="publication-list">
+
+                <div class="pub-item">
+                    <h4>Getnet, M. Y.; Gunjo, D. G.; Sinha, D. K.</h4>
+                    <p>
+                        <strong>Experimental investigation of thermal storage integrated indirect solar cooker with and without reflectors.</strong>
+                        DOI: <a href="https://doi.org/10.1016/j.rineng.2023.101022" target="_blank" rel="noreferrer noopener">See publication</a>
+                    </p>
                 </div>
-                <div class="collapsible-content">
 
-                <div class="projects-grid">
+                <div class="pub-item">
+                    <h4>Conference presentation</h4>
+                    <p><strong>"CFD and experimental investigation of flat plate collector for a solar cooking application"</strong> 3rd national conference on innovation and challenges in engineering and technology for sustainable development, Arba Minch Institute of Technology, Arbaminch, Ethiopia (Received Certificate of Participation)</p>
+                </div>
 
-                    <article class="project-card">
-                        <h3>Parametric Optimization of Plate Heat Exchangers for Zeotropic Refrigerant Condensation.</h3>
-                        <p><em>Current MSc research — UNICAS (in collaboration with University of Limerick)</em></p>
-                        <ul> 
-                            <li>Multi-objective optimization of PHE design parameters using MATLAB based NSGA-II algorism.  </li>
-                            <li> Aims to maximize overall heat transfer coefficient, minimize pressure drop [pumping power] and minimize 
-                                  effective heat transfer area[cost]. </li>
-                            <li>Pareto fronts were generated and TOPSIS is used as a decision-making tool.</li>
-                            <li> Studied the overall system level effect of optimized PHE parameters on selected HTHP layout.</li>
-                        </ul>
-                        <div class="project-gallery">
-                            <img class="project-image" src="#img" alt="Parametric Optimization image 1">
-                            <img class="project-image" src="#img" alt="Parametric Optimization image 2">
-                        </div>
-                    </article>
+            </div>
+        </div>
+    </section>
 
-                    <article class="project-card">
-                        <h3>Experimental Investigation of PCM Integrated Indirect Solar Cooking system</h3>
-                        <p><em>MSc thesis — ASTU (2018–2020)</em></p>
+    <!-- Experience Section -->
+    <section id="experience" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>Work & Academic Experience</h3>
+        </div>
+        <div class="collapsible-content">
+            <div class="container">
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h3>Lecturer — Adama Science and Technology University</h3>
+                        <p class="experience-period">Dec 2020 — Nov 2023</p>
                         <ul>
-                            <li> Employed the concept of conjugate heat transfer using COMSOL Multiphysics to simulate, characterize and
-                                 optimize the heat and fluid flow behaviour of the heat transfer fluid and phase change material.</li>
-                            <li>Designed and fabricated test rig for indirect solar cooking system.</li>
-                            <li>Enabled extended period of cooking for 2hrs using thermal energy storage unit and increased overall system
-                                 efficiency by 19%..</li>
-                            <li> Numerically modelled and simulated the flow of HTF inside a solar collector using ANSYS Fluent software.</li>
-                            <li> Validated the numerical result with RMSE 10%. </li>
+                            <li>Delivered courses for more than 40, 3rd year UG students (Heat Transfer Meng 3107), and more than 45, 2nd year students (Thermodynamics I Meng 2111 and II Meng 2112, Fluid Mechanics I MEng 2013) </li>
+                            <li>Involved in funded research project for enhancing heat transfer of local baking plate.</li>
                         </ul>
-                        <a href="https://doi.org/10.1016/j.rineng.2023.101022">See more about this research...</a>
-                        <div class="project-gallery">
-                            <img class="project-image" src="#img" alt="PCM Solar Cooking image 1">
-                            <img class="project-image" src="#img" alt="PCM Solar Cooking image 2">
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>CFD Simulation: Laminar & Buoyancy Driven Flow</h3>
-                        <p><em>Technical report</em></p>
-                        <p>[used open-source software’s of Salome, Open FOAM and Para-view for pre-processing, computational solving, 
-                             and post processing, respectively. Validated against a result generated from literature]  </p>
-                        <div class="project-gallery">
-                            <img class="project-image" src="#img" alt="CFD Simulation image 1">
-                            <img class="project-image" src="#img" alt="CFD Simulation image 2">
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>Four-Bar Magnetic Pick-and-Place Mechanism</h3>
-                        <p>Design and Simulation of Four-Bar Magnetic Pick-and-Place Mechanism(4BMPPM)(Mini design project)</p>
-                        <div class="project-gallery">
-                            <img class="project-image" src="#img" alt="Four-Bar Mechanism image 1">
-                            <img class="project-image" src="#img" alt="Four-Bar Mechanism image 2">
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <h3> CLTD Cooling Load Estimation Method</h3>
-                        <p> CLTD Cooling Load Estimation Method for ASTU Main Library Building (BSc project) </p>
-                        <div class="project-gallery">
-                            <img class="project-image" src="#img" alt="CLTD Cooling Load image 1">
-                            <img class="project-image" src="#img" alt="CLTD Cooling Load image 2">
-                        </div>
-                    </article>
-                </div>
-            </div>
-            </section>
-
-            <!-- =======================
-                 PUBLICATIONS
-            ========================== -->
-            <section id="publications" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>Publications & Presentations</h3>
-                </div>
-                <div class="collapsible-content">
-
-                <div class="publication-list">
-
-                    <div class="pub-item">
-                        <h4>Getnet, M. Y.; Gunjo, D. G.; Sinha, D. K.</h4>
-                        <p>
-                            <strong>Experimental investigation of thermal storage integrated indirect solar cooker with and without reflectors.</strong>
-                            DOI: <a href="https://doi.org/10.1016/j.rineng.2023.101022" target="_blank" rel="noreferrer noopener">See publication</a>
-                        </p>
                     </div>
 
-                    <div class="pub-item">
-                        <h4>Conference presentation</h4>
-                        <p><strong>"CFD and experimental investigation of flat plate collector for a solar cooking 
-                            application"</strong> 3rd national conference on innovation and challenges in engineering and technology for sustainable 
-                            development, Arba Minch Institute of Technology, Arbaminch, Ethiopia (Received Certificate of Participation)</p>
+                    <div class="timeline-item">
+                        <h3>Academic Research Assistant — Thermo-Fluid Lab, ASTU</h3>
+                        <p class="experience-period">Sept 2018 — June 2020</p>
+                        <ul>
+                            <li>Demonstrated lab test for undergraduate students (Wind tunnel, turbines, flow and pressure measurement).</li>
+                        </ul>
                     </div>
 
-                </div>
-            </div>
-            </section>
-
-            <!-- =======================
-                 EXPERIENCE
-            ========================== -->
-            <section id="experience" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>Work & Academic Experience</h3>
-                </div>
-                <div class="collapsible-content">
-                    <div class="container">
-
-                    <div class="timeline">
-
-                        <div class="timeline-item">
-                            <h3>Lecturer — Adama Science and Technology University</h3>
-                            <p class="experience-period">Dec 2020 — Nov 2023</p>
-                            <ul>
-                                <li>Delivered courses for more than 40, 3rd year UG students (Heat Transfer Meng 3107), and more than 45, 2nd 
-                                    year students (Thermodynamics I Meng 2111 and II Meng 2112, Fluid Mechanics I MEng 2013) </li>
-                                <li>Involved in funded research project for enhancing heat transfer of local baking plate.</li>
-                            </ul>
-                        </div>
-
-                        <div class="timeline-item">
-                            <h3>Academic Research Assistant — Thermo-Fluid Lab, ASTU</h3>
-                            <p class="experience-period">Sept 2018 — June 2020</p>
-                            <ul>
-                                <li>Demonstrated lab test for undergraduate students (Wind tunnel, turbines, flow and pressure measurement).</li>
-                            </ul>
-                        </div>
-
-                        <div class="timeline-item">
-                            <h3>Intern</h3>
+                    <div class="timeline-item">
+                        <h3>Intern</h3>
+                        <div class="internship-entry">
                             <p class="experience-period">5-month internship - Ethiopian Airlines MRO</p>
                             <ul>
                                 <li>Maintenance and troubleshooting of gas turbine engines.</li>
                             </ul>
+                        </div>
+                        <div class="internship-entry">
                             <p class="experience-period">3-month MSc internship- Laboratory of Machines and Plan</p>
                             <ul>
                                 <li>At The University of Cassino and southern Lazio, with Prof. Enzo Galloni [2025-06-05 - 2025-09-19] <a class="link" href="https://www.unicas.it/lamien/" rel="noopener noreferrer">LAMIEN</a></li>
                             </ul>
                         </div>
-                        <div class="timeline-item">
-                            <h3>Seminar</h3>
-                            <ul>
-                                <li>MSc seminar at Assela malt factory, enables me to present an alterative way of solar assisted cascade 
-                                    malt drying system for the company.   </li>
-                            </ul>
-                        </div>
+                    </div>
 
-                    </div>
-                </div>
-            </div>
-            </section>
-
-            <!-- =======================
-                 SKILLS
-            ========================== -->
-            <section id="skills" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>Skills & Tools</h3>
-                </div>
-                <div class="collapsible-content">
-
-                <div class="skills-grid">
-                    <div class="technical-skills">
-                        <div class="skill-header">
-                            <i class="fas fa-flask"></i>
-                            <h4>Simulation & CFD</h4>
-                        </div>
-                        <p>ANSYS-Fluent, OpenFOAM, COMSOL, SALOME, ParaView</p>
-                    </div>
-                    <div class="technical-skills">
-                        <div class="skill-header">
-                            <i class="fas fa-drafting-compass"></i>
-                            <h4>Design & CAD</h4>
-                        </div>
-                        <p>SolidWorks, Inventor</p>
-                    </div>
-                    <div class="technical-skills">
-                        <div class="skill-header">
-                            <i class="fas fa-code"></i>
-                            <h4>Programming & Optimization</h4>
-                        </div>
-                        <p>MATLAB, GAMS, PSPICE, Thermoflex, ASPEN+</p>
-                    </div>
-                    <div class="technical-skills">
-                        <div class="skill-header">
-                            <i class="fas fa-brain"></i>
-                            <h4>Methods</h4>
-                        </div>
-                        <p>Multi-objective optimization, GA, PSO, CHT, experimental rig design</p>
-                    </div>
-                    <div class="technical-skills">
-                        <div class="skill-header">
-                            <i class="fas fa-language"></i>
-                            <h4>Language</h4>
-                        </div>
-                        <p>English(professional proficiency)</p>
-                        <p>Amahric(native)</p>
-                        <p>Italian(elementary proficiency)</p>
-                    </div>
-                </div>
-            </div>
-            </section>
-            <!-- =======================
-                 REFERENCES SECTION
-            ========================== -->
-            <section id="references" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>References</h3>
-                </div>
-                <div class="collapsible-content">
-                
-                <div class="references-list">
-                    <div class="reference-item">
-                        <h4>Dr. Davide Lanni</h4>
-                        <p class="reference-title">Associate Professor</p>
-                        <p class="reference-dept">Dept. Civil and Mechanical Engineering</p>
-                        <p class="reference-uni">University of Cassino and Southern Lazio</p>
-                        <p class="reference-email">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:davide.lanni@unicas.it">davide.lanni@unicas.it</a>
-                        </p>
-                    </div>
-                    
-                    <div class="reference-item">
-                        <h4>Prof. Fausto Arpino</h4>
-                        <p class="reference-title">Head of Department</p>
-                        <p class="reference-dept">Dept. Civil and Mechanical Engineering</p>
-                        <p class="reference-uni">University of Cassino and Southern Lazio</p>
-                        <p class="reference-email">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:f.arpino@unicas.it">f.arpino@unicas.it</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            </section>
-
-            <!-- =======================
-                 CONTACT SECTION
-            ========================== -->
-            <section id="contact" class="collapsible-section">
-                <div class="collapsible-header collapsed">
-                    <h3>Contact Me</h3>
-                </div>
-                <div class="collapsible-content">
-                
-                <div class="contact-container">
-                    <!-- Contact Form -->
-                    <div class="contact-form">
-                        <form action="" method="POST" id="contact-form">
-                            <fieldset>
-                                
-                                <label for="fname">First Name:
-                                    <input type="text" id="fname" name="fname" required>
-                                </label>
-                                
-                                <label for="lname">Last Name:
-                                    <input type="text" id="lname" name="lname" required>
-                                </label>
-                                
-                                <label for="email">Email Address:
-                                    <input type="email" id="email" name="email" required>
-                                </label>
-                                
-                                <label for="message">Message:
-                                    <textarea id="message" name="message" required></textarea>
-                                </label>
-                                
-                                <button type="submit" id="submit-btn">
-                                    <span id="btn-text">Send Message</span>
-                                </button>
-                            </fieldset>
-                        </form>
-                    </div>
-                    
-                    <!-- Social Media Links -->
-                    <div class="social-links">
-                        <h3>Connect with me</h3>
-                        <ul class="social-links-list">
-                            <li class="social-link-item">
-                                <a href="https://www.linkedin.com/in/mekonen-y-getnet-61a409188/" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-linkedin"></i>
-                                    <span>LinkedIn</span>
-                                </a>
-                            </li>
-                            <li class="social-link-item">
-                                <a href="tel:+39 348 900 7887" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <span>WhatsApp</span>
-                                </a>
-                            </li>
-                            <li class="social-link-item">
-                                <a href="mailto:mekonenyalelet1179@gmail.com" target="_blank" rel="noopener noreferrer">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </a>
-                            </li>
+                    <div class="timeline-item">
+                        <h3>Seminar</h3>
+                        <ul>
+                            <li>MSc seminar at Assela malt factory, enables me to present an alterative way of solar assisted cascade malt drying system for the company.</li>
                         </ul>
                     </div>
+
                 </div>
             </div>
-            </section>
-    
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>Skills & Tools</h3>
+        </div>
+        <div class="collapsible-content">
+            <div class="skills-grid">
+                <div class="technical-skills">
+                    <div class="skill-header">
+                        <i class="fas fa-flask"></i>
+                        <h4>Simulation & CFD</h4>
+                    </div>
+                    <p>ANSYS-Fluent, OpenFOAM, COMSOL, SALOME, ParaView</p>
+                </div>
+                <div class="technical-skills">
+                    <div class="skill-header">
+                        <i class="fas fa-drafting-compass"></i>
+                        <h4>Design & CAD</h4>
+                    </div>
+                    <p>SolidWorks, Inventor</p>
+                </div>
+                <div class="technical-skills">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h4>Programming & Optimization</h4>
+                    </div>
+                    <p>MATLAB, GAMS, PSPICE, Thermoflex, ASPEN+</p>
+                </div>
+                <div class="technical-skills">
+                    <div class="skill-header">
+                        <i class="fas fa-brain"></i>
+                        <h4>Methods</h4>
+                    </div>
+                    <p>Multi-objective optimization, GA, PSO, CHT, experimental rig design</p>
+                </div>
+                <div class="technical-skills">
+                    <div class="skill-header">
+                        <i class="fas fa-language"></i>
+                        <h4>Language</h4>
+                    </div>
+                    <p>English(professional proficiency)</p>
+                    <p>Amahric(native)</p>
+                    <p>Italian(elementary proficiency)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="references" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>References</h3>
+        </div>
+        <div class="collapsible-content">
+            <div class="references-list">
+                <div class="reference-item">
+                    <h4>Dr. Davide Lanni</h4>
+                    <p class="reference-title">Associate Professor</p>
+                    <p class="reference-dept">Dept. Civil and Mechanical Engineering</p>
+                    <p class="reference-uni">University of Cassino and Southern Lazio</p>
+                    <p class="reference-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:davide.lanni@unicas.it">davide.lanni@unicas.it</a>
+                    </p>
+                </div>
+
+                <div class="reference-item">
+                    <h4>Prof. Fausto Arpino</h4>
+                    <p class="reference-title">Head of Department</p>
+                    <p class="reference-dept">Dept. Civil and Mechanical Engineering</p>
+                    <p class="reference-uni">University of Cassino and Southern Lazio</p>
+                    <p class="reference-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:f.arpino@unicas.it">f.arpino@unicas.it</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="collapsible-section">
+        <div class="collapsible-header collapsed">
+            <h3>Contact Me</h3>
+        </div>
+        <div class="collapsible-content">
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form action="" method="POST" id="contact-form">
+                        <fieldset>
+                            <label for="fname">First Name:
+                                <input type="text" id="fname" name="fname" required>
+                            </label>
+
+                            <label for="lname">Last Name:
+                                <input type="text" id="lname" name="lname" required>
+                            </label>
+
+                            <label for="email">Email Address:
+                                <input type="email" id="email" name="email" required>
+                            </label>
+
+                            <label for="message">Message:
+                                <textarea id="message" name="message" required></textarea>
+                            </label>
+
+                            <button type="submit" id="submit-btn">
+                                <span id="btn-text">Send Message</span>
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <h3>Connect with me</h3>
+                    <ul class="social-links-list">
+                        <li class="social-link-item">
+                            <a href="https://www.linkedin.com/in/mekonen-y-getnet-61a409188/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li class="social-link-item">
+                            <a href="tel:+39 348 900 7887" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                        </li>
+                        <li class="social-link-item">
+                            <a href="mailto:mekonenyalelet1179@gmail.com" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

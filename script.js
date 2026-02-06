@@ -1,190 +1,202 @@
-// Wait for DOM to be fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Navigation removed — no toggle required
+/**
+ * Mekonnen Yalelet — Portfolio Script
+ * Handles interactivity: animations, theme toggling, form submission, and collapsible sections.
+ */
 
-    // Contact Form - Mailto Handler
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. CONTACT FORM HANDLER (Mailto)
+    // ==========================================
     const contactForm = document.getElementById("contact-form");
     
     if (contactForm) {
-        contactForm.addEventListener("submit", function(e) {
+        contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
             
-            // Get form values
-            const fname = document.getElementById("fname").value.trim();
-            const lname = document.getElementById("lname").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
+            // Get form values using safe trimming
+            const getVal = (id) => document.getElementById(id).value.trim();
             
-            // Build email body with form data
-            const emailBody = `Hello,
-
-${message}
-
----
-From: ${fname} ${lname}
-Email: ${email}`;
+            const fname = getVal("fname");
+            const lname = getVal("lname");
+            const email = getVal("email");
+            const message = getVal("message");
             
-            // Build subject
+            // Construct email content
             const subject = `Contact from ${fname} ${lname}`;
+            const emailBody = `Hello,\n\n${message}\n\n---\nFrom: ${fname} ${lname}\nEmail: ${email}`;
             
-            // Encode the subject and body for URL
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedBody = encodeURIComponent(emailBody);
-            
-            // Create mailto link
-            const mailtoLink = `mailto:mekonenyalelet1179@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
-            
-            // Open default email client
+            // Open default mail client
+            const mailtoLink = `mailto:mekonenyalelet1179@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
             window.location.href = mailtoLink;
         });
     }
 
-    // --- BACKGROUND PARTICLE SYSTEM ---
+    // ==========================================
+    // 2. BACKGROUND PARTICLE SYSTEM
+    // ==========================================
+    initBackgroundAnimation();
+
+    // ==========================================
+    // 3. COLLAPSIBLE SECTIONS
+    // ==========================================
+    initCollapsibleSections();
+});
+
+/**
+ * Initializes the canvas particle animation and theme observer
+ */
+function initBackgroundAnimation() {
     const canvas = document.getElementById('signature-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        const toggleBtn = document.getElementById('theme-btn');
-        
-        let width, height;
-        let particles = [];
-        let animationId;
+    if (!canvas) return;
 
-        // Settings for the "Icon" Feel
-        const particleCount = 100; // Keep it low for minimalism
-        const connectionDistance = 150;
-        const particleSpeed = 0.5;
+    const ctx = canvas.getContext('2d');
+    const toggleBtn = document.getElementById('theme-btn');
+    
+    // Configuration
+    const config = {
+        particleCount: 250,
+        connectionDistance: 150,
+        speed: 0.5,
+        colors: {
+            dark: { particle: 'rgba(240, 240, 240, 0.5)', line: 'rgba(240, 240, 240, 0.15)' },
+            light: { particle: 'rgba(51, 51, 51, 0.5)', line: 'rgba(51, 51, 51, 0.1)' }
+        }
+    };
 
-        // Current Colors (Updated by Theme)
-        let particleColor = 'rgba(51, 51, 51, 0.5)';
-        let lineColor = 'rgba(51, 51, 51, 0.1)';
+    let width, height;
+    let particles = [];
+    let currentColor = config.colors.dark; // Default to dark theme initial state
 
-        // --- RESIZE HANDLER ---
-        function resize() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
+    // --- Particle Class ---
+    class Particle {
+        constructor() {
+            this.reset();
         }
 
-        // --- PARTICLE SYSTEM ---
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * particleSpeed;
-                this.vy = (Math.random() - 0.5) * particleSpeed;
-                this.size = Math.random() * 2 + 1; // Size between 1 and 3
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                // Bounce off edges
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = particleColor;
-                ctx.fill();
-            }
+        reset() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * config.speed;
+            this.vy = (Math.random() - 0.5) * config.speed;
+            this.size = Math.random() * 2 + 1;
         }
 
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
         }
 
-        // --- ANIMATION LOOP ---
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            
-            // Draw Lines
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = lineColor;
-                        ctx.lineWidth = 1 - (distance / connectionDistance);
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            // Draw Particles
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-
-            animationId = requestAnimationFrame(animate);
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = currentColor.particle;
+            ctx.fill();
         }
-
-        // --- THEME MANAGEMENT ---
-        function updateThemeColors() {
-            const isDark = document.body.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                particleColor = 'rgba(240, 240, 240, 0.5)'; // Light particles for dark mode
-                lineColor = 'rgba(240, 240, 240, 0.15)';   // Faint lines
-            } else {
-                particleColor = 'rgba(51, 51, 51, 0.5)';   // Dark grey particles
-                lineColor = 'rgba(51, 51, 51, 0.1)';       // Faint black lines
-            }
-        }
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                const currentTheme = document.body.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.body.setAttribute('data-theme', newTheme);
-                updateThemeColors();
-            });
-        }
-
-        // --- INITIALIZATION ---
-        window.addEventListener('resize', () => {
-            resize();
-            initParticles();
-        });
-
-        resize();
-        initParticles();
-        animate();
-        updateThemeColors(); // Set initial colors
     }
 
-    // --- COLLAPSIBLE SECTIONS ---
-    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    // --- Core Functions ---
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    function initParticles() {
+        particles = Array.from({ length: config.particleCount }, () => new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw Connections
+        for (let i = 0; i < particles.length; i++) {
+            const p1 = particles[i];
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < config.connectionDistance) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = currentColor.line;
+                    ctx.lineWidth = 1 - (distance / config.connectionDistance);
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Update & Draw Particles
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    function updateThemeColors() {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        currentColor = isDark ? config.colors.dark : config.colors.light;
+    }
+
+    // --- Event Listeners ---
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            updateThemeColors();
+        });
+    }
+
+    // --- Start ---
+    resize();
+    initParticles();
+    updateThemeColors();
+    animate();
+}
+
+/**
+ * Initializes the collapsible sections logic
+ */
+function initCollapsibleSections() {
+    const headers = document.querySelectorAll('.collapsible-header');
     
-    collapsibleHeaders.forEach(header => {
+    headers.forEach(header => {
         header.addEventListener('click', () => {
             const content = header.nextElementSibling;
             const isCollapsed = header.classList.contains('collapsed');
             
-            // Close all sections first
-            collapsibleHeaders.forEach(h => {
-                h.classList.add('collapsed');
-                h.nextElementSibling.classList.remove('expanded');
+            // Close all other sections first (Accordian style)
+            headers.forEach(h => {
+                if (h !== header) {
+                    h.classList.add('collapsed');
+                    h.nextElementSibling.classList.remove('expanded');
+                }
             });
             
+            // Toggle clicked section
             if (isCollapsed) {
-                // Expand the clicked one
                 header.classList.remove('collapsed');
                 content.classList.add('expanded');
+            } else {
+                header.classList.add('collapsed');
+                content.classList.remove('expanded');
             }
-            // If it was already open, it stays closed now
         });
     });
-});
+}
