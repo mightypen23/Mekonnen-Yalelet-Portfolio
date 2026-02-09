@@ -1,65 +1,63 @@
 /* ============================
-    GLOBAL VARIABLES
-============================ */
-:root {
-    /* Colors */
-    --primary-blue: rgb(0, 115, 255);
-    --dark-blue: #0e3a47;
-    
-    /* Text Colors (Light Mode) */
-    --text-dark: #203b41;
-    --text-medium: #3b6065;
-    --text-color: #333333;
-    
-    /* Backgrounds (Light Mode) */
-    --bg-color: #f9ffe0;
-    --card-bg: rgba(255, 255, 255, 0.25);
-    --card-border: rgba(255, 255, 255, 0.18);
-    
-    /* Shadows */
-    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --card-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
-    
-    /* Card Text (Light Mode) */
-    --card-text-primary: #203b41;
-    --card-text-secondary: #3b6065;
-    --card-text-accent: #0e3a47;
-    
-    /* Misc */
-    --transition-smooth: transform 0.3s ease, box-shadow 0.3s ease;
-    --toggle-bg: #e0e0e0;
-    --toggle-icon: #333;
-}
-
-[data-theme="dark"] {
-    /* Backgrounds (Dark Mode) */
-    --bg-color: #1a1a1a;
-    --card-bg: rgba(45, 55, 72, 0.25);
-    --card-border: rgba(255, 255, 255, 0.125);
-    
-    /* Text Colors (Dark Mode) */
-    --text-color: #f0f0f0;
-    --text-dark: #f0f0f0;
-    --text-medium: #d1d5db;
-    
-    /* Card Text (Dark Mode) */
-    --card-text-primary: #f0f0f0;
-    --card-text-secondary: #d1d5db;
-    --card-text-accent: #ffffff;
-    
-    /* Misc */
-    --toggle-bg: #2d3748;
-    --toggle-icon: #fbbf24;
-    --input-bg: rgba(45, 55, 72, 0.3);
-    --input-border: rgba(255, 255, 255, 0.2);
-}
-
-/* ============================
-    RESET & BASE
+    GLOBAL & VARIABLES
 ============================ */
 * {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-blue: rgb(0, 115, 255);
+    --dark-blue: #0e3a47;
+    --text-dark: #203b41;
+    --text-medium: #3b6065;
+    --card-bg: rgba(255, 255, 255, 0.25);
+    --card-border: rgba(255, 255, 255, 0.18);
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --card-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+    --transition-smooth: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Light Mode Colors for Background */
+    --bg-color: #f9ffe0;
+    --text-color: #333333;
+    --accent-color: #6c5ce7; /* Distinctive Purple */
+    --particle-color: rgba(51, 51, 51, 0.5);
+    --line-color: rgba(51, 51, 51, 0.1);
+    --toggle-bg: #e0e0e0;
+    --toggle-icon: #333;
+
+    /* Light mode card text colors */
+    --card-text-primary: #203b41;
+    --card-text-secondary: #3b6065;
+    --card-text-accent: #0e3a47;
+}
+
+[data-theme="dark"] {
+    /* Dark Mode Colors for Background */
+    --bg-color: #1a1a1a; /* Dark gray instead of pure black */
+    --text-color: #f0f0f0; /* Slightly warmer white */
+    --accent-color: #a29bfe;
+    --particle-color: rgba(240, 240, 240, 0.5);
+    --line-color: rgba(240, 240, 240, 0.15);
+    --toggle-bg: #2d3748;
+    --toggle-icon: #fbbf24;
+
+    /* Override portfolio colors for dark mode */
+    --text-dark: #f0f0f0;
+    --text-medium: #d1d5db;
+
+    /* Dark mode glassmorphic card backgrounds */
+    --card-bg: rgba(45, 55, 72, 0.25);
+    --card-border: rgba(255, 255, 255, 0.125);
+
+    /* Dark mode card text colors with better contrast hierarchy */
+    --card-text-primary: #f0f0f0; /* Main text */
+    --card-text-secondary: #d1d5db; /* Secondary text */
+    --card-text-accent: #ffffff; /* Accent/highlight text */
+
+    /* Dark mode form inputs */
+    --input-bg: rgba(45, 55, 72, 0.3);
+    --input-border: rgba(255, 255, 255, 0.2);
 }
 
 html {
@@ -75,35 +73,7 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-h1 {
-    font-size: 57px;
-    margin: 0;
-    color: var(--text-dark);
-}
-
-h2 {
-    font-size: 28px;
-    margin: 0;
-    color: var(--text-dark);
-}
-
-h3 {
-    margin: 0;
-}
-
-a {
-    color: var(--primary-blue);
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-
-a:hover {
-    opacity: 0.7;
-}
-
-/* ============================
-    COMPONENTS: CANVAS
-============================ */
+/* --- THE CANVAS BACKGROUND --- */
 #signature-canvas {
     position: fixed;
     top: 0;
@@ -114,9 +84,7 @@ a:hover {
     pointer-events: none;
 }
 
-/* ============================
-    COMPONENTS: THEME TOGGLE
-============================ */
+/* --- DARK MODE TOGGLE --- */
 .theme-toggle {
     position: fixed;
     top: 10px;
@@ -148,91 +116,108 @@ a:hover {
 }
 
 /* ============================
-    LAYOUT: SECTIONS
+    NAVIGATION
+============================ */
+
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form textarea {
+    background: rgba(45, 55, 72, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder {
+    color: #d1d5db;
+}
+
+/* ============================
+    HEADINGS
+============================ */
+h1 {
+    font-size: 57px;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+h2 {
+    font-size: 28px;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+h3 {
+    margin: 0;
+}
+
+.header,
+.section-title {
+    font-size: 27px;
+    border-left: 6px solid var(--primary-blue);
+    padding-left: 12px;
+    margin: 5px 0;
+    color: var(--card-text-primary);
+}
+
+.section-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* ============================
+    LAYOUT
 ============================ */
 body > section {
     margin: 20px auto;
     max-width: 1000px;
     position: relative;
     z-index: 1;
-    padding: 20px;
 }
 
-/* Common Card/Section Styles */
-.card-base,
-.project-card,
-.pub-item,
-.reference-item,
-.timeline-item,
-.technical-skills,
-.contact-form,
-.social-links,
-#name-and-pfp {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-smooth);
-}
-
-.card-base:hover,
-.project-card:hover,
-.pub-item:hover,
-.reference-item:hover,
-.timeline-item:hover,
-.technical-skills:hover,
-#name-and-pfp:hover {
-    box-shadow: var(--card-shadow-hover);
-}
-
-.card-base:hover,
-.project-card:hover,
-.pub-item:hover,
-.reference-item:hover,
-.timeline-item:hover,
-.technical-skills:hover {
-    transform: translateY(-2px);
-}
-
-/* ============================
-    SECTION: PROFILE (NAME & PFP)
-============================ */
 #name-and-pfp {
     margin-top: 85px;
     width: 100%;
     max-width: 600px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
     padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
     text-align: center;
+    transition: var(--transition-smooth);
+}
+
+#name-and-pfp:hover {
+    box-shadow: var(--card-shadow-hover);
 }
 
 .pfp {
     width: 55%;
     border-radius: 50%;
-    margin: auto;
-    box-shadow: 0 0 5px 5px lightgrey;
+    margin:auto;
+    box-shadow:0 0 5px 5px lightgrey;
 }
-
 #name-and-pfp h1 {
-    margin-top: 20px;
+    margin-top:20px;
     font-size: 32px;
     color: var(--card-text-primary);
 }
-
 .profile-links {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    width: 80%;
-    margin: 20px auto 0 auto;
+    align-items:center;
+    width:80%;
+    height:10%;
+    margin:auto;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
-    border-radius: 8px;
+    border-radius:8px;
     box-shadow: var(--card-shadow);
-    padding: 10px;
+    padding:1%;
 }
 
 .fa-google-scholar {
@@ -261,6 +246,13 @@ body > section {
 /* ============================
     COLLAPSIBLE SECTIONS
 ============================ */
+.collapsible-section {
+    margin: 20px auto;
+    max-width: 1000px;
+    position: relative;
+    z-index: 1;
+}
+
 .collapsible-header {
     cursor: pointer;
     display: flex;
@@ -312,49 +304,70 @@ body > section {
 }
 
 .collapsible-content.expanded {
-    max-height: 2500px; /* Large enough to fit content */
+    max-height: 2000px; /* Adjust based on content */
     padding: 20px 15px;
 }
 
-/* Internal Spacing for collapsible content items */
 .collapsible-section p,
-.collapsible-section .education-item,
 .collapsible-section .timeline-item,
 .collapsible-section .pub-item,
 .collapsible-section .reference-item,
 .collapsible-section .technical-skills,
-.collapsible-section .project-card,
-.collapsible-section .contact-container {
-    margin-bottom: 20px;
+.collapsible-section .project-card {
+    margin-bottom: 15px;
 }
 
-.collapsible-section *:last-child {
+.collapsible-section p:last-child,
+.collapsible-section .timeline-item:last-child,
+.collapsible-section .pub-item:last-child,
+.collapsible-section .reference-item:last-child,
+.collapsible-section .technical-skills:last-child,
+.collapsible-section .project-card:last-child {
     margin-bottom: 0;
 }
 
-/* ============================
-    SECTION: ABOUT
-============================ */
-#about p {
-    font-size: 18px;
+/* Mobile responsive adjustments for collapsible sections */
+@media (max-width: 768px) {
+    .collapsible-header {
+        padding: 12px 15px;
+        font-size: 24px;
+    }
+    
+    .collapsible-content.expanded {
+        padding: 15px;
+    }
+}
+
+section {
+    padding: 20px;
+}
+#about p{
+    font-size:18px;
     line-height: 1.8;
     text-align: justify;
     color: var(--card-text-secondary);
 }
 
-/* ============================
-    SECTION: EDUCATION
-============================ */
-.education-item {
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--card-border);
-    padding-bottom: 20px;
+#about {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
 }
 
-.education-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+#about:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+.range {
+    font-size: 18px;
+    color: var(--card-text-primary);
+    font-weight: 600;
 }
 
 .school {
@@ -363,10 +376,14 @@ body > section {
     font-weight: 600;
 }
 
-.range {
-    font-size: 18px;
-    color: var(--card-text-primary);
-    font-weight: 600;
+.school-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.school-link:hover {
+    opacity: 0.7;
 }
 
 .education-details {
@@ -377,14 +394,29 @@ body > section {
     text-align: justify;
 }
 
-/* Skills List (Chips) */
-.skills-list {
+#education {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+}
+
+#education:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+.skills_acquired {
     list-style: none;
     padding: 0;
     margin: 10px 0;
 }
 
-.skills-list li {
+.skills_acquired li {
     display: inline-block;
     background: rgba(0, 115, 255, 0.2);
     backdrop-filter: blur(5px);
@@ -398,7 +430,7 @@ body > section {
 }
 
 /* ============================
-   CARD STYLES
+CARD STYLES
 ============================ */
 .card-base,
 .project-card,
@@ -429,16 +461,12 @@ body > section {
 }
 
 /* ============================
-   PROJECTS
+    PROJECTS
 ============================ */
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-}
-
-.project-card {
-    padding: 20px;
+    gap: 1.2rem;
 }
 
 .project-card h3 {
@@ -459,11 +487,23 @@ body > section {
     max-height: 150px;
     object-fit: cover;
     border-radius: 8px;
-    background-color: #ccc; /* Placeholder color */
+}
+
+.project-card a,
+.pub-item a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.project-card a:hover,
+.pub-item a:hover {
+    opacity: 0.7;
 }
 
 /* ============================
-   SKILLS GRID
+    SKILLS GRID
 ============================ */
 .skills-grid {
     display: flex;
@@ -507,7 +547,7 @@ body > section {
 }
 
 /* ============================
-   PUBLICATIONS & PRESENTATIONS
+    PUBLICATIONS & PRESENTATIONS
 ============================ */
 #publications,
 #experience {
@@ -536,7 +576,7 @@ body > section {
 }
 
 /* ============================
-    SECTION: EXPERIENCE
+   WORK & ACADEMIC EXPERIENCE
 ============================ */
 .timeline {
     display: flex;
@@ -568,7 +608,6 @@ body > section {
 .timeline-item h3 {
     font-size: 20px;
     color: var(--card-text-accent);
-    margin-bottom: 5px;
 }
 
 .experience-period {
@@ -590,55 +629,16 @@ body > section {
 }
 
 /* ============================
-    SECTION: SKILLS GRID
+   REFERENCES SECTION
 ============================ */
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+#references {
+    margin-top: 30px;
 }
 
-.technical-skills {
-    flex: 1;
-    min-width: 180px;
-    padding: 15px;
-}
-
-.skill-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.skill-header i {
-    font-size: 24px;
-    color: var(--primary-blue);
-}
-
-.skill-header h4 {
-    margin: 0;
-    color: var(--card-text-accent);
-    font-size: 18px;
-}
-
-.technical-skills p {
-    margin: 0;
-    color: var(--card-text-secondary);
-    line-height: 1.4;
-}
-
-/* ============================
-    SECTION: REFERENCES
-============================ */
 .references-list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-}
-
-.reference-item {
-    padding: 20px;
 }
 
 .reference-item h4 {
@@ -674,13 +674,30 @@ body > section {
     font-size: 16px;
 }
 
+.reference-email a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.reference-email a:hover {
+    opacity: 0.7;
+}
+
 /* ============================
-    SECTION: CONTACT & FORM
+   CONTACT SECTION
 ============================ */
+#contact {
+    margin-top: 30px;
+    padding: 30px 20px;
+}
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    margin-top: 20px;
 }
 
 .contact-form fieldset {
@@ -689,15 +706,21 @@ body > section {
     margin: 0;
 }
 
+.contact-form legend,
+.social-links h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    padding: 0;
+}
+
 .contact-form label {
     display: block;
     margin-bottom: 15px;
-    color: var(--card-text-primary);
+    color: var(--text-dark);
     font-weight: 500;
 }
-
-/* Light/Dark overrides for inputs handled below specifically if needed, 
-   but defaulting to variables is better */
 
 .contact-form input,
 .contact-form textarea {
@@ -711,15 +734,8 @@ body > section {
     border-radius: 8px;
     font-family: inherit;
     font-size: 14px;
-    color: var(--card-text-primary);
+    color: #1a1a1a;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-[data-theme="dark"] .contact-form input,
-[data-theme="dark"] .contact-form textarea {
-    background: rgba(45, 55, 72, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    color: #f0f0f0;
 }
 
 .contact-form input:focus,
@@ -751,10 +767,10 @@ body > section {
     transform: translateY(-2px);
 }
 
-/* Social Links List */
-.social-links h3 {
-    margin-bottom: 20px;
-    color: var(--card-text-primary);
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #666;
+    opacity: 0.7;
 }
 
 .social-links-list {
@@ -771,13 +787,18 @@ body > section {
     align-items: center;
     gap: 15px;
     padding: 15px;
+    background: var(--card-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    transition: transform 0.3s ease;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-link-item:hover {
     transform: translateX(5px);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .social-link-item a {
@@ -787,6 +808,15 @@ body > section {
     text-decoration: none;
     color: var(--card-text-primary);
     width: 100%;
+    transition: color 0.3s ease;
+}
+
+.social-link-item a:hover {
+    color: var(--primary-blue);
+}
+
+.social-link-item:hover a {
+    color: var(--primary-blue);
 }
 
 .social-link-item i {
@@ -795,49 +825,127 @@ body > section {
     text-align: center;
 }
 
-.social-link-item .fa-linkedin { color: #0077b5; }
-.social-link-item .fa-whatsapp { color: #25D366; }
-.social-link-item .fa-envelope { color: #EA4335; }
+.social-link-item .fa-linkedin {
+    color: #0077b5;
+}
+
+.social-link-item .fa-whatsapp {
+    color: #25D366;
+}
+
+.social-link-item .fa-envelope {
+    color: #EA4335;
+}
+
+.social-link-item span {
+    font-size: 16px;
+    font-weight: 500;
+}
 
 /* ============================
-    MEDIA QUERIES
+   MEDIA QUERIES
 ============================ */
 @media (max-width: 1300px) {
     .container {
         flex-direction: column;
         gap: 2rem;
     }
-    .contact-container {
-        grid-template-columns: 1fr;
+
+    #name-and-pfp {
+        width: 100%;
+        margin: 85px auto 0 auto;
     }
+
+    .contents {
+        width: 100%;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .project-card,
+    .pub-item,
+    .reference-item,
+    .timeline-item,
+    .technical-skills {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .project-card h3 {
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
     .skills-grid {
         flex-direction: column;
     }
+
+    .technical-skills {
+        width: 100%;
+        min-width: 0;
+    }
+    
+    
+
+    .publication-list,
+    .timeline {
+        padding-left: 10px;
+        border-left-width: 2px;
+        width: 100%;
+    }
+
+    .timeline-item::before {
+        left: -22px;
+        width: 11px;
+        height: 11px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form,
+    .social-links {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
+/* nav removed */
+
 @media (max-width: 768px) {
-    .collapsible-header {
-        padding: 12px 15px;
-        font-size: 24px;
-    }
-    
-    .collapsible-content.expanded {
-        padding: 15px;
-    }
-    
-    #about p, .education-details {
+    #about p {
         font-size: 16px;
+        line-height: 1.6;
     }
-    
-    .project-card h3 {
-        font-size: 18px;
+    .education-details {
+        font-size: 16px;
+        line-height: 1.6;
     }
-    
-    .pfp {
-        width: 70%;
+    section {
+        padding: 10px;
     }
-    
+    .contents {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
     h1 {
         font-size: 40px;
     }
+    h2 {
+        font-size: 24px;
+    }
+    .header, .section-title {
+        font-size: 22px;
+    }
+    .education-details {
+        font-size: 14px;
+        line-height: 1.5;
+    }
 }
+/* large-screen nav hidden via removal */
